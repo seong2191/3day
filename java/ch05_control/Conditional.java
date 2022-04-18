@@ -85,7 +85,7 @@ public class Conditional {
 		boolean isPowerOn = false;
 		
 		// 전원 버튼을 눌렀을때의 로직
-		if(isPowerOn) {
+			if(isPowerOn) {
 			System.out.println("TV를 끕니다.");
 			isPowerOn = false;
 		}else {
@@ -116,6 +116,7 @@ public class Conditional {
 		}else {
 			System.out.println("여자");
 		}
+		
 		
 		
 		// 이중 삼항 연산자 썼던거
@@ -242,7 +243,6 @@ public class Conditional {
 			default:
 				System.out.println("수료");
 		}
-		
 		
 		
 		
