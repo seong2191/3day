@@ -288,8 +288,8 @@ select mem_name
     ,  NVL(sum(cart.cart_qty),0) as 전체상품구매수
     ,  NVL(sum(cart.cart_qty * prod.prod_sale),0) as 총구매금액
 from member, cart, prod
-where member.mem_id(+) = cart.cart_member
-and cart.cart_prod(+) = prod.prod_id
+where member.mem_id = cart.cart_member(+)
+and cart.cart_prod = prod.prod_id(+)
 group by mem_name
 order by 2 desc;
 
