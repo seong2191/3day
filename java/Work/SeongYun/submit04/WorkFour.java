@@ -80,7 +80,7 @@ public class WorkFour {
 			System.out.println("");
 		}
 		
-		// 풀
+		// 풀이
 		String star = "*";
 		for(int i = 0; i< 5; i++) {
 			String blank = "";
@@ -124,7 +124,6 @@ public class WorkFour {
 			System.out.println(blank + star);
 			blank += " ";
 		}
-		
 		
 		
 	}

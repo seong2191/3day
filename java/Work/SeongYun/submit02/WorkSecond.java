@@ -62,7 +62,6 @@ public class WorkSecond {
 		// idBackInt = 1, 1을 2로 나눈 나머지가 1이다. 맞으면 홀수 아니면 짝수(true : false)
 		System.out.println(idBackGen);
 		
-		
 	}
 
 }
