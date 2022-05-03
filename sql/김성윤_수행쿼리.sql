@@ -11,17 +11,20 @@ DEFAULT TABLESPACE TS_STUDY
 TEMPORARY TABLESPACE temp;  
 
 
+--단순계정생성
+--CREATE USER java2 IDENTIFIED BY oracle
+
 -- 3.
 GRANT connect, resource TO java2;
 
 
 -- 4.
 create table ex_mem(
-    mem_id varchar2(10) 
+    mem_id varchar2(10) not null
     ,mem_name varchar2(20) not null
     ,mem_job varchar2(30)
-    ,mem_mileage number(8,2)
-    ,mem_reg_date date
+    ,mem_mileage number(8,2) default 0
+    ,mem_reg_date date default sysdate
     ,constraint pk_ex_mem primary key(mem_id)
 );
 
@@ -32,6 +35,7 @@ ALTER TABLE ex_mem MODIFY(mem_name VARCHAR2(50));
 create sequence seq_code
 start with 1000 increment by 1
 maxvalue 9999
+minvalue 1000
 cycle;
 
 -- 7.
@@ -105,7 +109,7 @@ from
     , cart.cart_qty
     , substr(cart.cart_no,1,8) as 일자
 from cart, member
-where cart.cart_member = member.mem_id (+)) a
+where member.mem_id = cart.cart_member)
 where 일자 = '20050728';
 
 -- 14.
@@ -117,9 +121,9 @@ select member.mem_id
     , cart.cart_prod
     , cart.cart_qty
     , substr(cart.cart_no,1,8) as 일자
-from cart
-left join member
-on (cart.cart_member =member.mem_id)
+from member
+inner join cart
+on (member.mem_id = cart.cart_member)
 where substr(cart.cart_no,1,8) = '20050728';
 
 -- 15.

@@ -39,12 +39,13 @@ public class submit10 {
 				System.out.println("로그인 성공");
 			} else {
 				System.out.println("비밀번호가 틀렸습니다.");
-			}
+			}	
 
 		} else {
 			System.out.println("존재하지 않는 아이디입니다.");
 		}
-
+		
+		
 	}// 메인 끝
 
 	static void makeLotto() {
