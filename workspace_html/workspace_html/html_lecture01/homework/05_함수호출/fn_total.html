@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script>
+
+function fn_total01(first, last){
+    let total =0;
+    for(let i= first; i<=last; i++){
+        total += i;
+    }
+    alert(total);
+}
+
+let fn_total02 = function(first, last){
+    let total =0;
+    for(let i= first; i<=last; i++){
+        total += i;
+    }
+    alert(total);
+}
+
+function fn_array01(first, last){
+
+    let array01 =[];
+    for(let i= first; i<=last; i++){
+        array01.push(i);
+    }
+    alert(array01[5]);
+}
+
+function fn_array02(first, last){
+
+let array01 =[];
+for(let i= first; i<=last; i++){
+    array01.push(i);
+}
+alert(array01[5]);
+}
+
+</script>
+</head>
+<body>
+    <input type="button" onclick="fn_total01(1, 10)" value="(선언적함수로)1부터10까지 합을 구하는 함수"/>
+    <input type="button" onclick="fn_total02(1, 10)" value="(익명함수로)1부터10까지 합을 구하는 함수"/>
+
+    <input type="button" onclick="fn_array01(1, 10)" value="(선언적함수로)1부터10까지 수를 배열에 담은후 배열에 5번째 값을 출력하세요"/>
+    <input type="button" onclick="fn_array02(1, 10)" value="(익명함수로)1부터10까지 수를 배열에 담은후 배열에 5번째 값을 출력하세요"/>
+
+
+</body>
+</html>
