@@ -1,0 +1,9 @@
+작성 예시
+
+1.   2번
+
+2.    "id" : null,  "age" : 0 , "pass" : null     /   "id" : nextit,  "age" : 6 , "pass" : 8850     
+
+3.     10번째 줄 : NullPointerException 
+
+4.     "변수age" : 0,  "user Age" : 10 ,  "user2 Age" : 10   /   "변수age" : 0,  "user Age" : 20 ,  "user2 Age" : 20
