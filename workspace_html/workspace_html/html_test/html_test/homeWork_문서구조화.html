@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            div_문서구조화
+        </title>
+        <style>
+            #wrap{
+                /* id값 불러오는건 # */
+                margin: 0 auto;
+                width: 1000px;
+            }
+
+            .header{
+                /* class값 불러오는건 . */
+                width: 1000px;
+                height: 100px;
+                background-color: skyblue;
+            }
+           
+            .side{
+                width: 200px;
+                height: 650px;
+                background-color: orange;
+                float: left;
+            }
+            .contents{
+                width: 400px;
+                height: 650px;
+                background-color:greenyellow;
+                float: left;
+            }
+            .blank{
+                width: 400px;
+                height: 650px;
+                background-color: gray;
+                float:left;
+            }
+
+           
+
+            .blankk{
+                width: 1000px;
+                height: 200px;
+                background-color: beige;
+                clear: both;
+            }
+            .footer{
+                width: 1000px;
+                height: 100px;
+                background-color: dimgrey;
+                clear: both;
+            }
+            .inside {
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            position: relative;
+            }
+            
+            .inside{
+                top: -900px;
+                right: 200px;
+            }
+
+            .insidee {
+            width: 150px;
+            height: 150px;
+            background: khaki;
+            position: relative;
+            }
+            
+            .insidee{
+                top: -600px;
+                right: -100px;
+            }
+
+            .insideee {
+            width: 200px;
+            height: 75px;
+            background: seagreen;
+            position: relative;
+            }
+            
+            .insideee{
+                bottom: 250px;
+                left: -450px;
+            }
+
+            .insideeee {
+            width: 200px;
+            height: 75px;
+            background: seagreen;
+            position: relative;
+            }
+            
+            .insideeee{
+                bottom: 250px;
+                left: 75px;
+            }
+
+            .insideeeee {
+            width: 200px;
+            height: 75px;
+            background: seagreen;
+            position: relative;
+            }
+            
+            .insideeeee{
+                bottom: 250px;
+                right: -600px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id= "wrap"> 
+            <div class="header">header</div>
+            <div class="side">side</div>
+            <div class="contents">contents</div>
+            <div class="blank"></div>
+            <div class="blankk"></div>
+            <div class="footer">footer</div>
+            <div class="inside">1</div>
+            <div class="insidee">2</div>
+            <div class="insideee">3</div>
+            <div class="insideeee">4</div>
+            <div class="insideeeee">5</div>
+        </div>
+    </body>
+</html>

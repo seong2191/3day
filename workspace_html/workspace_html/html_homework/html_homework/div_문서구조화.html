@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            div_문서구조화
+        </title>
+        <style>
+            #wrap{
+                /* id값 불러오는건 # */
+                margin: 0 auto;
+                width: 1000px;
+            }
+
+            .header{
+                /* class값 불러오는건 . */
+                width: 1000px;
+                height: 100px;
+                background-color: red;
+            }
+           
+            .side{
+                width: 200px;
+                height: 650px;
+                background-color: yellow;
+                float: left;
+            }
+            .contents{
+                width: 350px;
+                height: 650px;
+                background-color: green;
+                float: left;
+            }
+            .blank{
+                width : 450px;
+                height: 650px;
+                background-color: aquamarine;
+                float: right;
+            }
+            .blankk{
+                width : 1000px;
+                height: 200px;
+                background-color: orange;
+                clear: both;
+            }
+            .footer{
+                width: 1000px;
+                height: 100px;
+                background-color: blue;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div id= "wrap"> 
+            <div class="header">header</div>
+            <div class="side">side</div>
+            <div class="contents">contents</div>
+            <div blank="blank"></div>
+            <div blank="blankk"></div>
+            <div class="footer">footer</div>
+        </div>
+    </body>
+</html>

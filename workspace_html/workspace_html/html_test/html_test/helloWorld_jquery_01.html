@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    function fn_jquery(){
+        alert("룰루");
+        var p_text = $("#p_id").text();
+        // #은 15행의 p tag의 id를 의미하고
+        // $는 4행의 jquery src를 가져오겠다는 뜻
+        console.log("p_text : ", p_text);
+    }
+</script>
+    </head>
+        <body>
+            <p id="p_id">hello world11</p>
+            <input type="button" onclick="javascript:fn_jquery()" value="랄라">
+            <!-- input화면에 버튼방식으로 추가, 자바스크립트의 fn_jquery함수를 가져오고, 버튼value의 값 -->
+        </body>
+</html>

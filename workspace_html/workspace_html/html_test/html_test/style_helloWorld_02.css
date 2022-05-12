@@ -1,0 +1,25 @@
+/* body보다 p태그가 우선순위가 높다 */
+/* p태그보다 .p_class가 우선순위가 더 높다 */
+/* p_id가 3개보다 우선순위가 높다 */
+/* !important 태그를 달면 권한이 강함 */
+/* 우선순위가 같을때 body를 앞에 적으면 body가 우선순위가 높아짐 */
+.p_class{
+    font-size: 50px;
+    color: blue;
+}
+p{
+    font-size: 50px;
+    color:red!important;
+}
+body{
+    font-size: 50px;
+    color:gray;
+}
+#p_id{
+    font-size: 50px;
+    color:black
+}
+body > p{
+    font-size: 50px;
+    color:green !important;
+}

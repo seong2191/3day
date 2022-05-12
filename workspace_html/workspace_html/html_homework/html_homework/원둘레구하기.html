@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function fn_prompt() {
+            const pi = 3.141592653;
+            let num = prompt("반지름을 입력하세요");
+            let numResult = num*2*pi;
+            let numResult1= numResult.toFixed(2);
+            if(num == null) { 
+            // 취소 버튼을 누른 경우
+            alert("취소하셨습니다.");
+            }
+            else if(num == "") {
+            alert("입력값이 없습니다.");
+            }
+            else {
+            //입력값이 있는 경우 
+            document.getElementById("div_1").textContent = numResult1;
+            }
+  }
+        </script>
+    </head>
+    <body>
+        <h3> 원의 둘레구하기</h3>
+        <hr>
+        <input type = "button" onclick="javascript:fn_prompt()" value="클릭해주세요">
+        <div id="div_1"></div>
+    </body>
+</html>
