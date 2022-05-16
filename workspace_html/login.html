@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- DOCTYPE -> document type -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>NextIT</title>
+
+<!-- 아이콘넣기 -->
+<link rel="icon" type="image/x-icon" href="./images/nextit_log.jpg">
+
+<!-- css파일가져오기 -->
+<link rel="stylesheet" type="text/css" href="./css/login.css">
+
+<!-- 로그인 아이디, 패스워드 값 콘솔 -->
+<script>
+    window.onload = function(){
+        let mem_id_tag = document.getElementById("mem_id");
+        let mem_pw_tag = document.getElementById("mem_pw");
+        console.log("mem_id_tag : ", mem_id_tag);
+
+        // 입력하지 않았을때 바뀌던 빨간글씨를 다시 흰색으로 돌리기
+        mem_id_tag.onclick = function(){
+            // user id를 클릭하면 출력
+            // alert("mem_id_tag.onclick");
+            document.querySelector(".login_form label[for='mem_id']").classList.remove("warning");
+        }
+
+        mem_pw_tag.onclick = function(){
+            // password를 클릭하면 출력
+            // alert("mem_pw_tag.onclick");
+            document.querySelector(".login_form label[for='mem_pw']").classList.remove("warning");
+        }
+    }
+
+
+
+    function login(){
+        console.log("login");
+        let mem_id_tag = document.getElementById("mem_id").value;
+        console.log("mem_id_tag", mem_id_tag);
+
+        let mem_pw_tag = document.getElementById("mem_pw").value;
+        console.log("mem_pw_tag", mem_pw_tag);
+
+        // 객체 취득
+        let label_mem_id = document.querySelector(".login_form label[for='mem_id']");
+        console.log("label_mem_id : ", label_mem_id);
+
+        let label_mem_pw = document.querySelector(".login_form label[for='mem_pw']");
+        console.log("label_mem_pw : ", label_mem_pw);
+
+
+
+
+        if(mem_id_tag === null || mem_id_tag === undefined || mem_id_tag === ""){
+            alert("아이디가 입력되지 않았습니다.")
+            // 입력되지 않았을때, 경고표시
+            label_mem_id.classList.add("warning");
+            return false;
+
+        }else if(mem_pw_tag === null || mem_pw_tag === undefined || mem_pw_tag === ""){
+            alert("패스워드가 입력되지 않았습니다.")
+            label_mem_pw.classList.add("warning");
+            return false;
+        }else{
+            alert("로그인 되었습니다.");
+        }
+    }
+
+
+</script>
+
+</head>
+<body>
+<div class="login_form">
+    <h1>NextIT</h1>
+    <form name = "loginForm" action="">
+        <!-- ID 만들기 -->
+        <div class="int-area">
+            <input type="text" name="mem_id" id="mem_id" value="" autocomplete="off" required>
+            <label for="mem_id">USER ID</label>
+        </div>
+
+        <!-- PASSWORD 만들기 -->
+        <div class="int-area">
+            <input type="password" name="mem_pw" id="mem_pw" autocomplete="off" required>
+            <label for="mem_pw">PASSWORD</label>
+        </div>
+
+        <!-- LOGIN 만들기 -->
+        <div class="btn-area">
+            <button type="button" id="btn_id" name="btn_id" onclick="login()">LOGIN</button>
+
+        </div>
+
+    </form>
+    <div class="caption">
+        <ul class="caption_ul">
+            <!-- join만들기 -->
+            <li>
+                <a href="#" onclick="join()">join</a>
+            </li>
+
+            <!-- 비밀번호찾기 만들기 -->
+            <li>
+                <a href="#" onclick="forgotPw()">forgotPw</a>
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</div>        
+</body>
+</html>

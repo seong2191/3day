@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>함수호출</title>
+<script>
+    
+    function fn_total01 (a, b) {
+      n=0;
+      for(let i = a; i <=b; i++){
+        n = n+i;
+      }
+      alert("1~10더한 값: "+n);
+    }
+//------------------------------------
+    let fn_total02 = function(a, b){
+      n=0;
+      for(let i = a; i <=b; i++){
+        n = n+i;
+      }
+      alert("1~10더한 값: "+n);
+    }
+//------------------------------------
+    let num = [];
+    function fn_array01(a,b){
+      n = 0; 
+      for(let i = a; i <=b; i++){
+         num.push(i);
+      }
+      alert("5번째: " + num[4]);
+    }
+//------------------------------------
+    let number = [];
+    let fn_array02 = function(a,b){
+      n = 0; 
+      for(let i = a; i <=b; i++){
+         number.push(i);
+      }
+      alert("5번째: " + number[4]);
+    }
+
+</script>
+</head>
+<body>
+ <h3>함수호출</h3>   
+<hr>
+<input type="button" onclick="javascript:fn_total01(1,10)" value="fn_total01">
+<input type="button" onclick="javascript:fn_total02(1,10)" value="fn_total02">
+
+<input type="button" onclick="javascript:fn_array01(1,10)" value="fn_array01">
+<input type="button" onclick="javascript:fn_array02(1,10)" value="fn_array02">
+
+<div id="div_1">  
+</div>
+ 
+</body>
+</html>
