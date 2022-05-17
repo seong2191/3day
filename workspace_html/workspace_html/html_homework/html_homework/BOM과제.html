@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><title>100~30</title></head>
+<body>
+
+
+
+<div>
+    <span id="span_1" style="color: white; font-size : 100px; background-color:green">
+        100</span>
+</div>
+<script>
+
+let span_1 = document.getElementById("span_1");
+
+
+let timerID = setInterval("countdown()", 100); 
+
+
+
+function countdown() {
+    let num = parseInt(span_1.textContent);
+    num--;
+    span_1.textContent = num;
+    console.log(num);
+
+    if(num === 30){
+        clearInterval(timerID);
+    }
+
+    
+    
+}
+
+
+span_1.onclick = function (e) {
+    clearInterval(timerID); 
+}
+
+</script>
+</body>
+</html>
