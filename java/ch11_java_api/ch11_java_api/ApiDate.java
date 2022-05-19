@@ -180,156 +180,135 @@ public class ApiDate {
 		sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 		Date dateOneDay = sdf.parse(oneDay);
 		Date dateTwoDay = sdf.parse(twoDay);
-		
+
 		// 둘 중 현재시간을 기준으로 좀 더 미래인 날짜는?
-		System.out.println(dateOneDay.getTime()); // 롱타입 1652758496000 
+		System.out.println(dateOneDay.getTime()); // 롱타입 1652758496000
 		System.out.println(dateTwoDay.getTime()); // 1652937791000
-		
+
 		// 롱타입의 결과값(밀리초)이 더 클수록 미래다.
 		long diffMillSec = dateTwoDay.getTime() - dateOneDay.getTime();
 		System.out.println(diffMillSec); // 밀리초 차이 값이 출력
-		
+
 		// 초 차이
 		long diffSec = diffMillSec / 1000;
 		System.out.println(diffSec + "초 차이");
-		
+
 		// 분 차이
 		long diffMin = diffSec / 60; // 60초로 나눈거
 		System.out.println(diffMin + "분 차이");
-		
+
 		// 시간 차이
 		long diffHour = diffMin / 60; // 60분으로 나눈거
 		System.out.println(diffHour + "시간 차이");
-		
+
 		// 일수 차이
 		long diffDate = diffHour / 24; // 24시간으로 나눈거
 		System.out.println(diffDate + "일 차이");
-		
+
 		// 연도 차이
 		long diffYear = diffDate / 365; // 24시간으로 나눈거
 		System.out.println(diffYear + "년 차이");
-		
+
 		// 초 차이~ 연도 차이 까지 한 줄로
-		long diff = diffMillSec / (1000*60*60*24); // 밀리초 / (초*분*시간*일)
+		long diff = diffMillSec / (1000 * 60 * 60 * 24); // 밀리초 / (초*분*시간*일)
 		System.out.println(diff);
-		
+
 		System.out.println("\n=========================================\n");
-		
+
 		// 디데이 계산
 		// 오늘 날짜 준비
 		Date today = new Date();
 		sdf = new SimpleDateFormat("yyyy.MM.dd");
-		
+
 		strToday = sdf.format(today); // 문자열로 바뀜
 		System.out.println(strToday); // 2022.05.18
-		
+
 		Date todate = sdf.parse(strToday);
 		System.out.println(todate); // Wed May 18 00:00:00 KST 2022
-		
+
 		String dDay = "2022.06.01";
 		Date dDate = sdf.parse(dDay);
 //		System.out.println(dDay);
-		
+
 		diffMillSec = dDate.getTime() - todate.getTime(); // 밀리초로 출력
-		diff = diffMillSec / (1000*60*60*24);
+		diff = diffMillSec / (1000 * 60 * 60 * 24);
 		System.out.println("지방선거까지 D-day는 " + diff + "일 남았습니다.");
-		
-		
+
 		dDay = "2022.04.11";
 		dDate = sdf.parse(dDay); // Date 객체로 바꿔줌
 		diffMillSec = todate.getTime() - dDate.getTime(); // 밀리초로 출력
-		diff = diffMillSec / (1000*60*60*24);
+		diff = diffMillSec / (1000 * 60 * 60 * 24);
 		System.out.println("교육 시작한 날부터 " + diff + "일 지났습니다.");
-		
+
 		System.out.println("\n=========================================\n");
-		
+
 		// 날짜 연산 Calendar
 		// Calendar를 이용하는게 좋다.
 		// 특정 날짜를 기준으로 날짜를 더하거나 뺄 때 유용
-		
+
 		Calendar toCal = Calendar.getInstance();
 		sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 		System.out.println(sdf.format(toCal.getTime()));
-		
+
 		// 3일 뒤
 		toCal.add(Calendar.DATE, 3); // 현재 날짜의 3일 뒤
 		System.out.println(sdf.format(toCal.getTime()));
-		
+
 		// 20일 뒤
 		toCal.add(Calendar.DATE, 20); // 현재 날짜의 20일 뒤
 		System.out.println(sdf.format(toCal.getTime()));
-		
+
 		// 7일 전
 		toCal.add(Calendar.DATE, -7); // 현재 날짜의 7일 전
 		System.out.println(sdf.format(toCal.getTime()));
-		
+
 		// 11개월 뒤
 		toCal.add(Calendar.MONTH, 11); // 현재 날짜의 11개월 뒤
 		System.out.println(sdf.format(toCal.getTime()));
-		
+
 		System.out.println("\n=========================================\n");
-		
+
 		// 달력 만들기
 		int year = 2022;
 		int month = 3;
-		
+
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(year, month-1, 1);
+		calendar.set(year, month - 1, 1);
 		System.out.println(sdf.format(calendar.getTime()));
-		
+
 		// 해당 달의 마지막 일자(DATE)를 얻기
 		int lastDay = calendar.getActualMaximum(calendar.DAY_OF_MONTH);
 		System.out.println(lastDay);
-		
+
 		// 해당 달의 시작 요일 얻기
 		// 1: 일요일, 2: 월, 3: 화 ..., 7: 토
 		int startDay = calendar.get(Calendar.DAY_OF_WEEK);
 		System.out.println(startDay); // 3 -> 화요일
-		
-		
+
 		System.out.println("==================" + year + "년 " + month + "월 달력" + "==================");
 		System.out.println();
 		System.out.println("일\t월\t화\t수\t목\t금\t토");
-		
-		// 42의 의미는 
+
+		// 42의 의미는
 		// 달력의 나올 수 있는 최대 줄 갯수(6) * 요일 수(7)
 		// \t는 공백
 		int currentDay = 1;
-		for(int i = 1; i <= 42; i++) {
-			if(i < startDay) {
+		for (int i = 1; i <= 42; i++) {
+			if (i < startDay) {
 				System.out.print("\t");
-			}else {
+			} else {
 				System.out.printf("%2d\t", currentDay);
 				currentDay++;
-				
-				if(currentDay > lastDay) {
+
+				if (currentDay > lastDay) {
 					break;
 				}
 			}
-			if(i % 7 == 0) {
+			if (i % 7 == 0) {
 				System.out.println("");
 			}
-			
+
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 	}
 
