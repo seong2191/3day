@@ -65,6 +65,7 @@ view에서는 전부보여주기
 			member.setMemAdd2(rs.getString("mem_add2"));
 			member.setMemHp(rs.getString("mem_hp"));
 			member.setMemMail(rs.getString("mem_mail"));
+			member.setMemJob(rs.getString("mem_job"));
 			member.setMemHobby(rs.getString("mem_hobby"));
 			member.setMemMileage(rs.getInt("mem_mileage"));
 			member.setMemDelYn(rs.getString("mem_del_yn"));
@@ -77,8 +78,8 @@ view에서는 전부보여주기
 	}finally{
 		// 연결종료
 		if(rs !=null) {try{ rs.close();}catch(Exception e){}}
-		if(stmt !=null) {try{ rs.close();}catch(Exception e){}}
-		if(conn !=null) {try{ rs.close();}catch(Exception e){}}
+		if(stmt !=null) {try{ stmt.close();}catch(Exception e){}}
+		if(conn !=null) {try{ conn.close();}catch(Exception e){}}
 	}
 %>
 

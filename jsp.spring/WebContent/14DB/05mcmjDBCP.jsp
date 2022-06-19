@@ -20,19 +20,20 @@
 <%@ include file="/WEB-INF/inc/top.jsp" %>
 
 <%
-	//02cocoj (one Connection one job)
-	Class.forName("oracle.jdbc.driver.OracleDriver"); // Class.forName 런타임동적로딩
+	//05mcmjDBCP, 서버가 켜질때 Class.forName(오라클 드라이버)하니까 필요없음
+	//Class.forName("oracle.jdbc.driver.OracleDriver"); // Class.forName 런타임동적로딩
 	Connection conn=null;
 	Statement stmt=null;
 	ResultSet rs=null;
 	long startTime=System.currentTimeMillis();
-	try{
-		conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "jsp", "oracle");
-		// 2번 연결
-		
-		// 3번 수행
-		for(int i=0; i<1000; i++){
+	for(int i=0; i<1000; i++){
+		// 연결하는 부분만 DB직접 찾지 말고, DBCP에 연결정보 요청
+		try{
+			//conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "jsp", "oracle");
+			conn=DriverManager.getConnection("jdbc:apache:commons:dbcp:study");
+			// 2번 연결
 			
+			// 3번 수행
 			stmt=conn.createStatement(); // 쿼리수행 객체
 			StringBuffer sb = new StringBuffer();
 			
@@ -46,14 +47,14 @@
 			sb.append(" FROM																	");
 			sb.append("    free_board														");
 			rs = stmt.executeQuery(sb.toString()); //쿼리수행, rs는 쿼리 수행 결과 저장 객체(rs는 select에만)
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			// 연결종료
+			if(rs !=null) {try{ rs.close();}catch(Exception e){}}
+			if(stmt !=null) {try{ stmt.close();}catch(Exception e){}}
+			if(conn !=null) {try{ conn.close();}catch(Exception e){}}
 		}
-	}catch(SQLException e){
-		e.printStackTrace();
-	}finally{
-		// 연결종료
-		if(rs !=null) {try{ rs.close();}catch(Exception e){}}
-		if(stmt !=null) {try{ stmt.close();}catch(Exception e){}}
-		if(conn !=null) {try{ conn.close();}catch(Exception e){}}
 	}
 	long endTime=System.currentTimeMillis();
 %>
