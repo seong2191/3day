@@ -1,0 +1,12 @@
+study3 = MVC 패턴 (요청이 올때마다 디스패처서블릿의 Service메소드가 실행된다)
+
+study3_1 = Mybatis
+
+mybatis나 JPA나 PersistenLayer(DAO) 프레임워크다.
+JDBC만으로 DB조회하는거는 너무 힘들다.
+
+sb.append() 해야되고, while() {setMemId(), setMemName()}.. 일일이 하는거 힘듦)
+
+
+service에서 FreeBoardDaoOracle 대신 mybatis의 mapper.xml파일이 실행되도록 할 것이다.
+(FreeBoardDaoOracle 삭제할예정, IFreeBoardDao는 필요함)
