@@ -56,7 +56,8 @@
 			<th>이메일</th>
 			<td>
 				<form:input path="memMail" cssClass="form-control input-sm" />
-				<form:errors path="memMail"></form:errors>		
+				<form:errors path="memMail"></form:errors>
+				<button type="button" id="mailAuth">메일인증</button>		
 			</td>
 		</tr>		
 		<tr>
@@ -110,6 +111,34 @@ var isIdChecked=false;
 		// submit 바로 하면 안되니까 e.preventDefault()
 		// submit 해도 되면 submit()함수
 		
+		 $("input[name='memId']").on("change", function(e){
+        isIdChecked=false;
+    	});//memId값 바뀔 때마다
+    	
+    	$("#mailAuth").on("click", function(e){
+    		e.preventDefault();
+    		
+    		$.ajax({
+    			url : "<c:url value='mailAuth.wow' />" 
+   				,data : {"mail" : $("input[name='memMail']").val()}
+    			, success : function(data){
+    				
+    				var opener = window.open("<c:url value='mailWindow.wow'/>", "이름","_blank, width=500px, height=600px, left=500px, top=200px")
+    			}
+    			,error : function(req,st,err){
+    				alert(req);
+    			}
+    		});
+    	});
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+		
 		$("button[type=submit]").click(function(e) {
             e.preventDefault();
             if(isIdChecked){
@@ -118,10 +147,6 @@ var isIdChecked=false;
                 alert("id 중복체크를 해주세요");
     	        }
 	       });// 다음버튼
-		 $("input[name='memId']").on("change", function(e){
-        isIdChecked=false;
-    	});//memId값 바뀔 때마다 
-		
 	}); // document
 </script>
 </html>

@@ -3,6 +3,7 @@ package com.study.login.web;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import com.study.exception.BizDuplicateKeyException;
 import com.study.exception.BizNotEffectedException;
 import com.study.exception.BizNotFoundException;
 import com.study.member.service.IMemberService;
+import com.study.member.service.MailSendService;
 import com.study.member.vo.MemberVO;
 @SessionAttributes("member") // 이 컨트롤러에서만 유지되는 세션,
 // 이 컨트롤러에서 model의 "member" 값을 유지시키는 용도
@@ -115,6 +117,20 @@ public class MemberJoinController {
 		}catch(BizNotFoundException e){
 			return "success";
 		}
+	}
+	@Inject
+	MailSendService mailSendService;
+	
+	@ResponseBody
+	@RequestMapping("/join/mailAuth.wow")
+	public String mailAuth(String mail) throws MessagingException {
+		String randomKey = mailSendService.sendAuthMail(mail);
+		return randomKey;
+	}
+	
+	@RequestMapping("/join/mailWindow.wow")
+	public String mailWindow() {
+		return "join/mailWindow";
 	}
 
 }
